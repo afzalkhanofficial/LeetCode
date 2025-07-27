@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <unordered_map>
 using namespace std;
@@ -6,13 +5,13 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> numMap;
+        unordered_map<int, int> map;
         for (int i = 0; i < nums.size(); ++i) {
-            int complement = target - nums[i];
-            if (numMap.find(complement) != numMap.end()) {
-                return {numMap[complement], i};
+            int diff = target - nums[i];
+            if (map.count(diff)) {
+                return {map[diff], i};
             }
-            numMap[nums[i]] = i;
+            map[nums[i]] = i;
         }
         return {};
     }
